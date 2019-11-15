@@ -49,9 +49,11 @@ public class ScrollingActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient() {
 
         });
-        final WebSettings settings = webView.getSettings();
+        WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
-
+        settings.setSupportZoom(true);
+        settings.setDisplayZoomControls(true);
+        settings.setBuiltInZoomControls(true);
         webView.setWebChromeClient(new WebChromeClient());
         webView.loadUrl("https://android.googlesource.com/");
 

@@ -22,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -37,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient() {
 
         });
-        webView.getSettings().setJavaScriptEnabled(true);
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setSupportZoom(true);
+        settings.setDisplayZoomControls(true);
+        settings.setBuiltInZoomControls(true);
         webView.setWebChromeClient(new WebChromeClient());
         webView.loadUrl("https://en.wikipedia.org/w/index.php?title=Android_(operating_system)&mobileaction=toggle_view_desktop");
     }
