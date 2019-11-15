@@ -82,6 +82,10 @@ public class NestedWebView extends WebView implements NestedScrollingChild {
                 // start NestedScroll
                 startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
                 break;
+            case MotionEvent.ACTION_POINTER_DOWN:
+            case MotionEvent.ACTION_POINTER_UP:
+                returnValue = super.onTouchEvent(event);
+                break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 returnValue = super.onTouchEvent(event);
